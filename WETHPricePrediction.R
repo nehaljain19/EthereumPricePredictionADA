@@ -60,7 +60,7 @@ wethToken = select(wethToken, -token)
 head(wethToken)
 
 # Write data into CSV
-write.csv(wethToken,"C:\\Users\\Nehal\\OneDrive\\Documents\\MSBA_StudyMaterial\\Fall2022\\AdvancedDataAnalytics\\Project\\R_NEW_WETHDailyDayData.csv")
+write.csv(wethToken,"C:\\Users\\Nehal\\OneDrive\\Documents\\MSBA_StudyMaterial\\Fall2022\\AdvancedDataAnalytics\\Project\\WETHDailyDayData.csv")
 
 # Visualize data
 p <- ggplot(eth, aes(x=date, y=priceUSD)) +
