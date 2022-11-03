@@ -60,10 +60,14 @@ wethToken = select(wethToken, -token)
 head(wethToken)
 
 # Write data into CSV
-write.csv(wethToken,"C:\\Users\\Nehal\\OneDrive\\Documents\\MSBA_StudyMaterial\\Fall2022\\AdvancedDataAnalytics\\Project\\WETHDailyDayData.csv")
+write.csv(wethToken,"WETHDailyDayData.csv")
 
 # Visualize data
-p <- ggplot(eth, aes(x=date, y=priceUSD)) +
+p <- ggplot(wethToken, aes(x=date, y=priceUSD)) +
   geom_line() + 
   xlab("")
 p
+
+
+ethTS <- ts(wethToken, frequency = 12)
+plot.ts(ethTS)
