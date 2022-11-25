@@ -56,13 +56,15 @@ wethToken$date <- as.Date(wethToken$date)
 
 #Cleaning the data by dropping column - 'token'
 wethToken = select(wethToken, -token)
+#Dropping 'volume' which is in ETH as we are already capturing Volume in USD #Dropping price in USD as it is duplicate of 'Close'
+wethToken = select(wethToken, -c(volume,priceUSD))
 
 #Cleaning the data by dropping discrepancy value = 0
 wethToken = subset(wethToken, low> 0)
 head(wethToken)
 
 # Write data into CSV
-write.csv(wethToken,"WETHDailyDayData.csv")
+write.csv(wethToken,"C:\\Users\\Nehal\\OneDrive\\Documents\\MSBA_StudyMaterial\\Fall2022\\AdvancedDataAnalytics\\Project\\WETHDailyDayData.csv")
 
 
 # Visualize data
