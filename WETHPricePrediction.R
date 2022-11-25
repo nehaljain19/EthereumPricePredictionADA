@@ -64,7 +64,7 @@ wethToken = subset(wethToken, low> 0)
 head(wethToken)
 
 # Write data into CSV
-write.csv(wethToken,"C:\\Users\\Nehal\\OneDrive\\Documents\\MSBA_StudyMaterial\\Fall2022\\AdvancedDataAnalytics\\Project\\WETHDailyDayData.csv")
+write.csv(wethToken,"filePath\\WETHDailyDayData.csv")
 
 
 # Visualize data
