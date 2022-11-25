@@ -61,10 +61,15 @@ wethToken = select(wethToken, -c(volume,priceUSD))
 
 #Cleaning the data by dropping discrepancy value = 0
 wethToken = subset(wethToken, low> 0)
+
+#Creating the target variable: 1 = High, 0 = Low
+wethToken$Target = ifelse(wethToken$open < wethToken$close, 1, 0)
+
+
 head(wethToken)
 
 # Write data into CSV
-write.csv(wethToken,"filePath\\WETHDailyDayData.csv")
+write.csv(wethToken,"C:\\Users\\Nehal\\OneDrive\\Documents\\MSBA_StudyMaterial\\Fall2022\\AdvancedDataAnalytics\\Project\\WETHDailyDayData.csv")
 
 
 # Visualize data
