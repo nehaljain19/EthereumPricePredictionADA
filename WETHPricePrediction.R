@@ -69,7 +69,7 @@ wethToken$Target = ifelse(wethToken$open < wethToken$close, 1, 0)
 head(wethToken)
 
 # Write data into CSV
-write.csv(wethToken,"FilePath\\WETHDailyDayData.csv")
+write.csv(wethToken,"C:\\Users\\Nehal\\OneDrive\\Documents\\MSBA_StudyMaterial\\Fall2022\\AdvancedDataAnalytics\\Project\\WETHDailyDayData.csv")
 
 
 # Visualize data
@@ -127,3 +127,90 @@ fig2 <- fig2 %>%
     
     plot_bgcolor='#e5ecf6', width = 900)
 fig2
+
+
+# Visualize data
+# Visualizing a timeseries - Date vs High using Plotly
+fig3 <- plot_ly(wethToken, type = 'scatter', mode = 'lines')%>%
+  add_trace(x = ~date, y = ~high)%>%
+  layout(showlegend = F, title='Time Series: Date vs Daily High of WETH (in USD)',
+         xaxis = list(rangeslider = list(visible = T),
+                      rangeselector=list(
+                        buttons=list(
+                          list(count=1, label="1m", step="month", stepmode="backward"),
+                          list(count=6, label="6m", step="month", stepmode="backward"),
+                          list(count=1, label="YTD", step="year", stepmode="todate"),
+                          list(count=1, label="1y", step="year", stepmode="backward"),
+                          list(step="all")
+                        ))))
+
+fig3 <- fig3 %>%
+  layout(
+    xaxis = list(zerolinecolor = '#ffff',
+                 zerolinewidth = 2,
+                 gridcolor = 'ffff'),
+    
+    yaxis = list(zerolinecolor = '#ffff',
+                 zerolinewidth = 2,
+                 gridcolor = 'ffff'),
+    
+    plot_bgcolor='#e5ecf6', width = 900)
+fig3
+
+
+# Visualize data
+# Visualizing a timeseries - Date vs Total Value Locked using Plotly
+fig4 <- plot_ly(wethToken, type = 'scatter', mode = 'lines')%>%
+  add_trace(x = ~date, y = ~totalValueLockedUSD)%>%
+  layout(showlegend = F, title='Time Series: Date vs Total Value Locked of WETH (in USD)',
+         xaxis = list(rangeslider = list(visible = T),
+                      rangeselector=list(
+                        buttons=list(
+                          list(count=1, label="1m", step="month", stepmode="backward"),
+                          list(count=6, label="6m", step="month", stepmode="backward"),
+                          list(count=1, label="YTD", step="year", stepmode="todate"),
+                          list(count=1, label="1y", step="year", stepmode="backward"),
+                          list(step="all")
+                        ))))
+
+fig4 <- fig4 %>%
+  layout(
+    xaxis = list(zerolinecolor = '#ffff',
+                 zerolinewidth = 2,
+                 gridcolor = 'ffff'),
+    
+    yaxis = list(zerolinecolor = '#ffff',
+                 zerolinewidth = 2,
+                 gridcolor = 'ffff'),
+    
+    plot_bgcolor='#e5ecf6', width = 900)
+fig4
+
+
+# Visualize data
+# Visualizing a timeseries - Date vs Daily Close using Plotly
+fig5 <- plot_ly(wethToken, type = 'scatter', mode = 'lines')%>%
+  add_trace(x = ~date, y = ~close)%>%
+  layout(showlegend = F, title='Time Series: Date vs Daily Close of WETH (in USD)',
+         xaxis = list(rangeslider = list(visible = T),
+                      rangeselector=list(
+                        buttons=list(
+                          list(count=1, label="1m", step="month", stepmode="backward"),
+                          list(count=6, label="6m", step="month", stepmode="backward"),
+                          list(count=1, label="YTD", step="year", stepmode="todate"),
+                          list(count=1, label="1y", step="year", stepmode="backward"),
+                          list(step="all")
+                        ))))
+
+fig5 <- fig5 %>%
+  layout(
+    xaxis = list(zerolinecolor = '#ffff',
+                 zerolinewidth = 2,
+                 gridcolor = 'ffff'),
+    
+    yaxis = list(zerolinecolor = '#ffff',
+                 zerolinewidth = 2,
+                 gridcolor = 'ffff'),
+    
+    plot_bgcolor='#e5ecf6', width = 900)
+fig5
